@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Zap, Target, RotateCcw, TrendingUp, BarChart3, Clock, MapPin } from "lucide-react";
+import { Zap, Target, RotateCcw, TrendingUp, MapPin } from "lucide-react";
 import { mockPlayers, mockPitches } from "@/data/mockTrackManData";
 
 interface EnhancedPitcherProfileProps {

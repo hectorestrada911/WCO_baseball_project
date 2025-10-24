@@ -21,14 +21,14 @@ export function SettingsPage() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="bg-gray-800 text-white p-4 lg:p-6 rounded-lg">
+      {/* Header with SDSU Colors */}
+      <div className="bg-gradient-to-r from-red-600 to-red-800 text-white p-4 lg:p-6 rounded-lg">
         <div className="flex items-center mb-4">
-          <Settings className="h-8 w-8 mr-3 text-blue-400" />
-          <h1 className="text-2xl lg:text-3xl font-bold">Settings</h1>
+          <Settings className="h-8 w-8 mr-3 text-red-200" />
+          <h1 className="text-2xl lg:text-3xl font-bold">SDSU Settings</h1>
         </div>
-        <div className="h-1 bg-orange-500 mt-2"></div>
-        <div className="h-1 bg-blue-500 mt-1"></div>
+        <div className="h-1 bg-red-500 mt-2"></div>
+        <div className="h-1 bg-black mt-1"></div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -46,7 +46,7 @@ export function SettingsPage() {
               <input
                 type="text"
                 defaultValue="Team Manager"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               />
             </div>
             <div>
@@ -56,10 +56,10 @@ export function SettingsPage() {
               <input
                 type="email"
                 defaultValue="manager@baseballteam.com"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               />
             </div>
-            <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
+            <button className="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors">
               Update Profile
             </button>
           </div>
@@ -155,7 +155,7 @@ export function SettingsPage() {
               <select
                 value={theme}
                 onChange={(e) => setTheme(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               >
                 <option value="light">Light</option>
                 <option value="dark">Dark</option>
@@ -168,7 +168,7 @@ export function SettingsPage() {
               </label>
               <select
                 defaultValue="en"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               >
                 <option value="en">English</option>
                 <option value="es">Spanish</option>
@@ -192,7 +192,7 @@ export function SettingsPage() {
                 <input
                   type="password"
                   placeholder="Enter current password"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                 />
               </div>
               <div>
@@ -202,7 +202,7 @@ export function SettingsPage() {
                 <input
                   type="password"
                   placeholder="Enter new password"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                 />
               </div>
             </div>
@@ -214,7 +214,7 @@ export function SettingsPage() {
                 <input
                   type="password"
                   placeholder="Confirm new password"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                 />
               </div>
               <button className="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors">
