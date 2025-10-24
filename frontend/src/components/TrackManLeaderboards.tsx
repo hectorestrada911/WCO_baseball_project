@@ -1,30 +1,52 @@
 "use client";
 
 import { useState } from "react";
-import { TrendingUp, Target, Zap, RotateCcw, BarChart3, Trophy } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { Target, Zap, RotateCcw, BarChart3, Trophy } from "lucide-react";
 import { mockPlayers, mockPitches } from "@/data/mockTrackManData";
 
+type MetricId = "velocity" | "spinrate" | "batting" | "strikeouts";
+
+interface LeaderboardPlayer {
+  playerId: string;
+  playerName: string;
+  position: string;
+  avgVelocity?: number;
+  maxVelocity?: number;
+  spinRate?: number;
+  battingAverage?: number;
+  hits?: number;
+  strikeouts?: number;
+}
+
+interface MetricDefinition {
+  id: MetricId;
+  label: string;
+  icon: LucideIcon;
+  data: LeaderboardPlayer[];
+}
+
 export function TrackManLeaderboards() {
-  const [selectedMetric, setSelectedMetric] = useState("velocity");
+  const [selectedMetric, setSelectedMetric] = useState<MetricId>("velocity");
+  const typedPlayers = mockPlayers as LeaderboardPlayer[];
 
-  // Calculate leaderboard data from TrackMan data
-  const velocityLeaders = mockPlayers
+  const velocityLeaders = typedPlayers
     .filter(p => p.position === "Pitcher")
-    .sort((a, b) => (b.avgVelocity || 0) - (a.avgVelocity || 0));
+    .sort((a, b) => (b.avgVelocity ?? 0) - (a.avgVelocity ?? 0));
 
-  const spinRateLeaders = mockPlayers
+  const spinRateLeaders = typedPlayers
     .filter(p => p.position === "Pitcher")
-    .sort((a, b) => (b.spinRate || 0) - (a.spinRate || 0));
+    .sort((a, b) => (b.spinRate ?? 0) - (a.spinRate ?? 0));
 
-  const battingLeaders = mockPlayers
+  const battingLeaders = typedPlayers
     .filter(p => p.position === "Hitter")
-    .sort((a, b) => (b.battingAverage || 0) - (a.battingAverage || 0));
+    .sort((a, b) => (b.battingAverage ?? 0) - (a.battingAverage ?? 0));
 
-  const strikeoutLeaders = mockPlayers
+  const strikeoutLeaders = typedPlayers
     .filter(p => p.position === "Hitter")
-    .sort((a, b) => (b.strikeouts || 0) - (a.strikeouts || 0));
+    .sort((a, b) => (b.strikeouts ?? 0) - (a.strikeouts ?? 0));
 
-  const metrics = [
+  const metrics: MetricDefinition[] = [
     { id: "velocity", label: "Pitching Velocity", icon: Zap, data: velocityLeaders },
     { id: "spinrate", label: "Spin Rate", icon: RotateCcw, data: spinRateLeaders },
     { id: "batting", label: "Batting Average", icon: Target, data: battingLeaders },
@@ -33,7 +55,7 @@ export function TrackManLeaderboards() {
 
   const currentMetric = metrics.find(m => m.id === selectedMetric) || metrics[0];
 
-  const getValueDisplay = (player: any, metric: string) => {
+  const getValueDisplay = (player: LeaderboardPlayer, metric: MetricId) => {
     switch (metric) {
       case "velocity":
         return `${player.avgVelocity || 0} mph`;
@@ -171,10 +193,9 @@ export function TrackManLeaderboards() {
           <div>
             <h3 className="font-medium text-gray-900 mb-2">Hitting Performance</h3>
             <ul className="text-sm text-gray-600 space-y-1">
-              <li>• {mockPlayers.filter(p => p.position === "Hitter").length} batters tracked</li>
-              <li>• Team batting average: .167</li>
-              <li>• Total strikeouts: {mockPlayers.filter(p => p.position === "Hitter").reduce((sum, p) => sum + (p.strikeouts || 0), 0)}</li>
-              <li>• Total hits: {mockPlayers.filter(p => p.position === "Hitter").reduce((sum, p) => sum + (p.hits || 0), 0)}</li>
+              <li>• {typedPlayers.filter(p => p.position === "Hitter").length} batters tracked</li>
+              <li>• Total strikeouts: {typedPlayers.filter(p => p.position === "Hitter").reduce((sum, p) => sum + (p.strikeouts ?? 0), 0)}</li>
+              <li>• Total hits: {typedPlayers.filter(p => p.position === "Hitter").reduce((sum, p) => sum + (p.hits ?? 0), 0)}</li>
             </ul>
           </div>
           <div>
