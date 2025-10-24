@@ -92,7 +92,18 @@ frontend/src/
 
 ## Deployment
 
-### Frontend (Vercel)
+### Frontend (AWS Amplify)
+1. Push code to GitHub
+2. Connect repository to AWS Amplify
+3. Amplify auto-deploys on every push using `amplify.yml`
+4. Share preview URL with team
+
+**Quick Setup:**
+- See [AMPLIFY_DEPLOYMENT.md](./AMPLIFY_DEPLOYMENT.md) for detailed instructions
+- The project is pre-configured for static export deployment
+- Build artifacts are generated in the `out` directory
+
+### Frontend (Vercel - Alternative)
 1. Push code to GitHub
 2. Connect repository to Vercel
 3. Vercel auto-deploys on every push
