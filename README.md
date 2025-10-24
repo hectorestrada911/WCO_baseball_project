@@ -1,86 +1,46 @@
 # Baseball Data Platform
 
-A comprehensive web application for tracking and analyzing baseball performance data from TrackMan CSV files.
+A comprehensive platform for analyzing TrackMan CSV data with modern web technologies.
 
 ## Project Structure
 
 ```
-WCO_baseball_project/
-├── frontend/          # Next.js web application
-├── backend/           # Backend API and data processing (coming later)
-└── README.md          # This file
+baseball-organized/
+├── frontend/          # Next.js React application
+├── backend/           # Node.js Express API
+└── README.md         # This file
 ```
 
 ## Quick Start
 
 ### Frontend Development
-
 ```bash
-# Navigate to frontend directory
 cd frontend
-
-# Install dependencies
 npm install
-
-# Run development server
 npm run dev
 ```
 
-The app will be available at `http://localhost:3000`
-
-## Team Collaboration
-
-### Current Status
-- **Frontend**: Complete and ready to deploy
-- **Backend**: To be implemented by backend team
-
-### Frontend Work
-Everything is built in the `frontend/` folder. The team can:
-- Push changes directly to the main branch
-- Deploy to Vercel for team preview
-- Continue adding features and pages
-
-### Backend Team (Later)
-When they're ready, they'll create a `backend/` folder alongside the `frontend/` with:
-- API endpoints for data processing
-- Database connections
-- CSV upload handling
-- Authentication services
-
-## What's Included
-
-### Frontend Features
-- **Home Dashboard** - Overview of team statistics and activity
-- **Roster Page** - Player cards with basic information
-- **Team Info** - Coaching staff, schedule, contact details
-- **Leaderboards** - Performance rankings and metrics
-- **Player Stats** - Individual player statistics
-- **Upload Page** - CSV file upload interface
-- **Settings** - User preferences and configuration
-
-### Tech Stack
-- **Framework**: Next.js 15 (App Router)
-- **Styling**: Tailwind CSS
-- **Icons**: Lucide React
-- **Language**: TypeScript
-
-## Available Scripts
-
-### Frontend
+### Backend Development
 ```bash
-npm run dev     # Start development server
-npm run build   # Build for production
-npm run start   # Start production server
-npm run lint    # Run ESLint
+cd backend
+npm install
+npm run dev
 ```
 
-## Development Guidelines
+## Features
 
-### Code Style
-- Use TypeScript for type safety
-- Write clear, short comments
-- Keep components modular and reusable
-- Follow Next.js best practices
+- **Frontend**: Modern React/Next.js application with Tailwind CSS
+- **Backend**: Express.js API for data processing
+- **Data**: TrackMan CSV integration
+- **UI**: SDSU red and black theme
+- **Responsive**: Mobile-first design
+
+## Technology Stack
+
+- **Frontend**: Next.js 15, React, TypeScript, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Data**: TrackMan CSV processing
+- **Deployment**: AWS Amplify (Frontend), TBD (Backend)
 
 ### File Organization
 ```
@@ -151,4 +111,3 @@ For questions or issues, reach out to the team lead.
 ---
 
 **Note**: This is a student project. Focus on clean code, good documentation, and team collaboration!
-

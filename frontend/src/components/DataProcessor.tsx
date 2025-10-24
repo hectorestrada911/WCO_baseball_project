@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Upload, FileText, BarChart3, Users } from "lucide-react";
+import { Upload, BarChart3 } from "lucide-react";
 import { Pitch, PlayerStats } from "@/types/baseball";
 
 interface DataProcessorProps {
@@ -27,7 +27,7 @@ export function DataProcessor({ onDataProcessed }: DataProcessorProps) {
     const pitches: Pitch[] = [];
     const playerStatsMap = new Map<string, PlayerStats>();
     
-    dataRows.forEach((row, index) => {
+    dataRows.forEach((row) => {
       const values = row.split(',');
       if (values.length < headers.length) return;
       
