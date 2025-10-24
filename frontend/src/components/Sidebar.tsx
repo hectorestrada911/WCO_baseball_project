@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Users, BarChart3, Upload, Settings, Menu, X, Info } from "lucide-react";
+import { Users, BarChart3, Upload, Settings, Menu, X, Info } from "lucide-react";
 import { useState } from "react";
 
 export function Sidebar() {
@@ -19,10 +19,10 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Mobile Menu Button */}
+      {/* Mobile Menu Button with SDSU Colors */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-md shadow-lg"
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-red-600 text-white rounded-md shadow-lg hover:bg-red-700 transition-colors"
       >
         {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </button>
@@ -35,13 +35,14 @@ export function Sidebar() {
         />
       )}
 
-      {/* Sidebar */}
+      {/* Sidebar with SDSU Colors */}
       <div className={`
-        fixed lg:static inset-y-0 left-0 z-50 w-64 bg-gray-800 text-white flex flex-col transform transition-transform duration-300 ease-in-out
+        fixed lg:static inset-y-0 left-0 z-50 w-64 bg-gradient-to-b from-red-600 to-red-800 text-white flex flex-col transform transition-transform duration-300 ease-in-out
         ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
-        <div className="p-4 lg:p-6 border-b border-gray-700">
-          <h1 className="text-xl font-bold">Baseball Platform</h1>
+        <div className="p-4 lg:p-6 border-b border-red-700">
+          <h1 className="text-xl font-bold">SDSU Aztecs</h1>
+          <p className="text-red-200 text-sm">Baseball Platform</p>
         </div>
         
         <nav className="flex-1 p-4">
@@ -53,8 +54,8 @@ export function Sidebar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center space-x-3 px-3 py-2 rounded-md transition-colors ${
                     pathname === href
-                      ? "bg-gray-700 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                      ? "bg-red-700 text-white shadow-md"
+                      : "text-red-100 hover:bg-red-700 hover:text-white"
                   }`}
                 >
                   <Icon className="h-5 w-5 flex-shrink-0" />

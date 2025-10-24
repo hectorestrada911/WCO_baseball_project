@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Users, Calendar, Trophy, MapPin, Clock, Phone, Mail, Star, TrendingUp } from "lucide-react";
+import { Users, Calendar, MapPin, Clock, Phone, Mail, Star, TrendingUp } from "lucide-react";
 
 interface TeamMember {
   name: string;
@@ -85,6 +85,8 @@ export function TeamInfoPage() {
 
   const tabs = [
     { id: "overview", label: "Overview", icon: Users },
+    { id: "stats", label: "Stats", icon: TrendingUp },
+    { id: "roster", label: "Roster", icon: Users },
     { id: "coaching", label: "Coaching Staff", icon: Star },
     { id: "schedule", label: "Schedule", icon: Calendar },
     { id: "contact", label: "Contact", icon: Phone }
@@ -100,16 +102,16 @@ export function TeamInfoPage() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="bg-gray-800 text-white p-4 lg:p-6 rounded-lg">
+      {/* Header with SDSU Colors */}
+      <div className="bg-gradient-to-r from-red-600 to-red-800 text-white p-4 lg:p-6 rounded-lg">
         <div className="flex items-center justify-between mb-4">
           <h1 className="text-2xl lg:text-3xl font-bold flex items-center">
-            <Users className="h-8 w-8 mr-3 text-blue-400" />
-            Team Information
+            <Users className="h-8 w-8 mr-3 text-red-200" />
+            SDSU Aztecs Team Information
           </h1>
         </div>
-        <div className="h-1 bg-orange-500 mt-2"></div>
-        <div className="h-1 bg-blue-500 mt-1"></div>
+        <div className="h-1 bg-red-500 mt-2"></div>
+        <div className="h-1 bg-black mt-1"></div>
       </div>
 
       {/* Tab Navigation */}
@@ -122,7 +124,7 @@ export function TeamInfoPage() {
                 onClick={() => setSelectedTab(tab.id)}
                 className={`flex items-center space-x-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                   selectedTab === tab.id
-                    ? "border-blue-500 text-blue-600 bg-blue-50"
+                    ? "border-red-500 text-red-600 bg-red-50"
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50"
                 }`}
               >
@@ -140,21 +142,21 @@ export function TeamInfoPage() {
               <div>
                 <h2 className="text-lg font-semibold text-gray-900 mb-4">Season Statistics</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="bg-blue-50 p-4 rounded-lg text-center">
-                    <div className="text-2xl font-bold text-blue-600">{teamStats.totalPlayers}</div>
-                    <div className="text-sm text-gray-600">Total Players</div>
+                  <div className="bg-black p-4 rounded-lg text-center">
+                    <div className="text-2xl font-bold text-white">{teamStats.totalPlayers}</div>
+                    <div className="text-sm text-gray-300">Total Players</div>
                   </div>
-                  <div className="bg-green-50 p-4 rounded-lg text-center">
-                    <div className="text-2xl font-bold text-green-600">{teamStats.wins}-{teamStats.losses}</div>
-                    <div className="text-sm text-gray-600">Win-Loss Record</div>
+                  <div className="bg-black p-4 rounded-lg text-center">
+                    <div className="text-2xl font-bold text-white">{teamStats.wins}-{teamStats.losses}</div>
+                    <div className="text-sm text-gray-300">Win-Loss Record</div>
                   </div>
-                  <div className="bg-purple-50 p-4 rounded-lg text-center">
-                    <div className="text-2xl font-bold text-purple-600">{teamStats.winPercentage}%</div>
-                    <div className="text-sm text-gray-600">Win Percentage</div>
+                  <div className="bg-black p-4 rounded-lg text-center">
+                    <div className="text-2xl font-bold text-white">{teamStats.winPercentage}%</div>
+                    <div className="text-sm text-gray-300">Win Percentage</div>
                   </div>
-                  <div className="bg-orange-50 p-4 rounded-lg text-center">
-                    <div className="text-2xl font-bold text-orange-600">{teamStats.avgRunsPerGame}</div>
-                    <div className="text-sm text-gray-600">Avg Runs/Game</div>
+                  <div className="bg-black p-4 rounded-lg text-center">
+                    <div className="text-2xl font-bold text-white">{teamStats.avgRunsPerGame}</div>
+                    <div className="text-sm text-gray-300">Avg Runs/Game</div>
                   </div>
                 </div>
               </div>
@@ -163,29 +165,84 @@ export function TeamInfoPage() {
                 <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Performance</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
-                      <span className="text-sm text-green-800">Team ERA</span>
-                      <span className="text-sm font-semibold text-green-600">{teamStats.teamEra}</span>
+                    <div className="flex items-center justify-between p-3 bg-black rounded-lg">
+                      <span className="text-sm text-gray-300">Team ERA</span>
+                      <span className="text-sm font-semibold text-white">{teamStats.teamEra}</span>
                     </div>
-                    <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
-                      <span className="text-sm text-blue-800">Games Played</span>
-                      <span className="text-sm font-semibold text-blue-600">{teamStats.gamesPlayed}</span>
+                    <div className="flex items-center justify-between p-3 bg-black rounded-lg">
+                      <span className="text-sm text-gray-300">Games Played</span>
+                      <span className="text-sm font-semibold text-white">{teamStats.gamesPlayed}</span>
                     </div>
                   </div>
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
-                      <span className="text-sm text-purple-800">Current Streak</span>
-                      <span className="text-sm font-semibold text-purple-600 flex items-center">
+                    <div className="flex items-center justify-between p-3 bg-black rounded-lg">
+                      <span className="text-sm text-gray-300">Current Streak</span>
+                      <span className="text-sm font-semibold text-white flex items-center">
                         <TrendingUp className="h-3 w-3 mr-1" />
                         3 Wins
                       </span>
                     </div>
-                    <div className="flex items-center justify-between p-3 bg-orange-50 rounded-lg">
-                      <span className="text-sm text-orange-800">Season Status</span>
-                      <span className="text-sm font-semibold text-orange-600">Active</span>
+                    <div className="flex items-center justify-between p-3 bg-black rounded-lg">
+                      <span className="text-sm text-gray-300">Season Status</span>
+                      <span className="text-sm font-semibold text-white">Active</span>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          )}
+
+          {/* Stats Tab */}
+          {selectedTab === "stats" && (
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900 mb-4">Team Statistics</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-black p-4 rounded-lg text-center">
+                    <div className="text-2xl font-bold text-white">.287</div>
+                    <div className="text-sm text-gray-300">Team Batting Average</div>
+                  </div>
+                  <div className="bg-black p-4 rounded-lg text-center">
+                    <div className="text-2xl font-bold text-white">3.45</div>
+                    <div className="text-sm text-gray-300">Team ERA</div>
+                  </div>
+                  <div className="bg-black p-4 rounded-lg text-center">
+                    <div className="text-2xl font-bold text-white">127</div>
+                    <div className="text-sm text-gray-300">Total Strikeouts</div>
+                  </div>
+                  <div className="bg-black p-4 rounded-lg text-center">
+                    <div className="text-2xl font-bold text-white">89</div>
+                    <div className="text-sm text-gray-300">Total RBIs</div>
+                  </div>
+                  <div className="bg-black p-4 rounded-lg text-center">
+                    <div className="text-2xl font-bold text-white">23</div>
+                    <div className="text-sm text-gray-300">Home Runs</div>
+                  </div>
+                  <div className="bg-black p-4 rounded-lg text-center">
+                    <div className="text-2xl font-bold text-white">156</div>
+                    <div className="text-sm text-gray-300">Total Hits</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Roster Tab */}
+          {selectedTab === "roster" && (
+            <div>
+              <h2 className="text-lg font-semibold text-gray-900 mb-4">Team Roster</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {Array.from({ length: 12 }, (_, i) => (
+                  <div key={i} className="bg-black p-4 rounded-lg">
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-red-600 rounded-full mx-auto mb-2 flex items-center justify-center">
+                        <span className="text-white font-bold text-lg">{i + 1}</span>
+                      </div>
+                      <div className="text-white font-semibold">Player {i + 1}</div>
+                      <div className="text-gray-300 text-sm">Position</div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}

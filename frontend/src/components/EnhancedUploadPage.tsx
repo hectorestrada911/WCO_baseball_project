@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Upload, FileText, CheckCircle, AlertCircle, Clock, BarChart3, Users, Target } from "lucide-react";
+import { Upload, FileText, CheckCircle, AlertCircle, Clock, BarChart3, Target } from "lucide-react";
 import { DataProcessor } from "./DataProcessor";
 import { PlayerStats, Pitch } from "@/types/baseball";
 
@@ -104,14 +104,14 @@ export function EnhancedUploadPage() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="bg-gray-800 text-white p-4 lg:p-6 rounded-lg">
+      {/* Header with SDSU Colors */}
+      <div className="bg-gradient-to-r from-red-600 to-red-800 text-white p-4 lg:p-6 rounded-lg">
         <div className="flex items-center mb-4">
-          <Upload className="h-8 w-8 mr-3 text-blue-400" />
-          <h1 className="text-2xl lg:text-3xl font-bold">TrackMan Data Upload</h1>
+          <Upload className="h-8 w-8 mr-3 text-red-200" />
+          <h1 className="text-2xl lg:text-3xl font-bold">SDSU TrackMan Data Upload</h1>
         </div>
-        <div className="h-1 bg-orange-500 mt-2"></div>
-        <div className="h-1 bg-blue-500 mt-1"></div>
+        <div className="h-1 bg-red-500 mt-2"></div>
+        <div className="h-1 bg-black mt-1"></div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -143,8 +143,8 @@ export function EnhancedUploadPage() {
             disabled={!selectedFile || uploadStatus === "uploading"}
             className={`w-full py-3 px-4 rounded-md text-white font-semibold transition-colors ${
               !selectedFile || uploadStatus === "uploading"
-                ? "bg-blue-300 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700"
+                ? "bg-red-300 cursor-not-allowed"
+                : "bg-red-600 hover:bg-red-700"
             }`}
           >
             {uploadStatus === "uploading" ? "Uploading..." : "Upload & Process"}
