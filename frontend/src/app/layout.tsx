@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} antialiased`} suppressHydrationWarning={true}>
         <div className="flex h-screen bg-gray-100">
           <Sidebar />
           <main className="flex-1 overflow-auto lg:ml-0">

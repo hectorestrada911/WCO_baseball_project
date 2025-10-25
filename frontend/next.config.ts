@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname),
   // Ensure proper asset handling
   assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
+  // Reduce hydration warnings for browser extensions
+  reactStrictMode: false,
+  // Disable static optimization for pages that might have hydration issues
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
 };
 
 export default nextConfig;
