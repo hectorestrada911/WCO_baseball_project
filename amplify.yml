@@ -10,6 +10,8 @@ applications:
         build:
           commands:
             - npm run build:amplify
+            - ls -la out/
+            - echo "Static site build completed"
       artifacts:
         baseDirectory: out
         files:

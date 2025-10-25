@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "export": "next build && next export",
-    "build:amplify": "next build"
+    "build:amplify": "next build && echo 'Static export completed'"
   },
   "dependencies": {
     "lucide-react": "^0.546.0",
