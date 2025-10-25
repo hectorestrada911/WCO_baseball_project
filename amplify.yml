@@ -1,4 +1,3 @@
-# filepath: amplify.yml
 version: 1
 applications:
   - appRoot: frontend
@@ -10,10 +9,8 @@ applications:
         build:
           commands:
             - npm run build:amplify
-            - ls -la out/
-            - echo "Static site build completed"
       artifacts:
-        baseDirectory: out
+        baseDirectory: .next
         files:
           - '**/*'
       cache:
