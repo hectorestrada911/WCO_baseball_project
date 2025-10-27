@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Users, BarChart3, Upload, Settings, Menu, X, Info } from "lucide-react";
+import { Menu, X, Home,BarChart3,Users } from "lucide-react";
 import { useState } from "react";
 
 export function Sidebar() {
@@ -11,71 +11,61 @@ export function Sidebar() {
  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
  const navItems = [
-  { href: "/", label: "Home", icon: Users },
-  { href: "/roster", label: "Roster", icon: Users },
-  { href: "/leaderboards", label: "Performance", icon: BarChart3 },
-  { href: "/upload", label: "Upload Data", icon: Upload },
-  { href: "/team-info", label: "Team Info", icon: Info },
-  { href: "/settings", label: "Settings", icon: Settings },
+  { href: "/", label: "Home", icon: Home },
+  { href: "/hitters", label: "Hitters", icon: BarChart3 },
+  { href: "/pitchers", label: "Pitchers", icon: BarChart3 },
+  { href: "/catchers", label: "Catchers", icon: BarChart3 },
+  { href: "/roster", label: "Roster", icon: Users }
  ];
 
  return (
   <header className="navbar fixed top-0 left-0 right-0 z-50 shadow-lg">
    <div className="w-full px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center h-16">
-     {/* Brand/Logo on Left*/}
-     <div className="flex-shrink-0">
-            <Link href="/" className="navbar-logo flex items-center">
-              <Image 
-                src="/SDSU_logo.webp" 
-                alt="SDSU Aztec Baseball Logo" 
-                width={40}
-                height={40}
-                className="h-10 w-auto" 
-              />
-
-              <span className="ml-3 text-xl font-bold text-white transition-colors hidden sm:block">
-                SDSU Aztec Baseball
-              </span>
-            </Link>
-     </div>
-
-     {/* Desktop Navigation Links (Hidden on small screens) */}
-     <nav className="hidden lg:flex flex-1 justify-center">
-      <div className="flex space-x-8"> 
-       {navItems.map(({ href, label, icon: Icon }) => (
+    <div className="flex justify-center items-center h-16">
+     {/* Centered Navigation */}
+     <nav className="hidden lg:flex items-center space-x-8">
+      {/* Brand/Logo */}
+      <Link href="/" className="navbar-logo flex items-center">
+        <Image 
+          src="/SDSU_logo.webp" 
+          alt="SDSU Aztec Baseball Logo" 
+          width={40}
+          height={40}
+          className="h-10 w-auto" 
+        />
+        <span className="ml-3 text-xl font-bold text-white transition-colors hidden sm:block">
+          SDSU Aztec Baseball
+        </span>
+      </Link>
+      
+      {/* Navigation Links */}
+      {navItems.map(({ href, label, icon: Icon }) => (
         <Link
-         key={href}
-         href={href}
-         className={`navbar-link flex items-center space-x-2 text-sm font-medium text-white
-          ${
-           pathname === href
-            ? "active"
-            : "hover:opacity-80"
-          }`}
+          key={href}
+          href={href}
+          className={`navbar-link flex items-center space-x-2 text-sm font-medium text-white
+            ${
+              pathname === href
+                ? "active"
+                : "hover:opacity-80"
+            }`}
         >
-         <Icon className="h-5 w-5" />
-         <span>{label}</span>
+          <Icon className="h-5 w-5" />
+          <span>{label}</span>
         </Link>
-       ))}
-      </div>
+      ))}
      </nav>
 
      {/* Mobile Menu Button*/}
      <div className="lg:hidden">
       <button
-       onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-       className="p-2 text-red-200 hover:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-600 focus:ring-white"
-       aria-expanded={isMobileMenuOpen ? "true" : "false"}
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="p-2 text-red-200 hover:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-600 focus:ring-white"
+        aria-expanded={isMobileMenuOpen ? "true" : "false"}
       >
-       <span className="sr-only">Open main menu</span>
-       {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        <span className="sr-only">Open main menu</span>
+        {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </button>
-     </div>
-     
-     {/* Placeholder for symmetry on desktop */}
-     <div className="hidden lg:block w-[100px] text-red-600">
-      {/*centering */}
      </div>
     </div>
    </div>

@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { Users, BarChart3, Upload, Trophy, Calendar, Target } from "lucide-react";
+import { Users, Trophy, Target } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -50,31 +49,6 @@ export default function HomePage() {
               <h3 className="stat-number">500+</h3>
               <p className="stat-label">Data Points</p>
             </div>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="action-buttons">
-            <Link 
-              href="/roster" 
-              className="action-button action-button-primary"
-            >
-              <Users className="action-button-icon" />
-              View Roster
-            </Link>
-            <Link 
-              href="/leaderboards" 
-              className="action-button action-button-secondary"
-            >
-              <BarChart3 className="action-button-icon" />
-              Performance Stats
-            </Link>
-            <Link 
-              href="/upload" 
-              className="action-button action-button-outline"
-            >
-              <Upload className="action-button-icon" />
-              Upload Data
-            </Link>
           </div>
         </div>
       </div>

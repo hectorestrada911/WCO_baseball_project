@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reset margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --background: #000000;
   --foreground: #171717;
@@ -18,13 +25,20 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* Navbar Styles */
 .navbar {
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(50px);
   box-shadow: 0px 0px 30px rgba(227,228, 237, 0.37);
   border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 30px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar:hover {
@@ -70,7 +84,7 @@ body {
 }
 
 .navbar-logo:hover {
-  transform: scale(1.05);
+
 }
 
 .mobile-menu {
@@ -112,7 +126,7 @@ body {
 }
 
 .main-content {
-  padding-top: 4rem; /* 64px for navbar height */
+  padding-top: 0; /* No padding - navbar overlays content */
 }
 
 /* Hero Section Styles */
@@ -125,6 +139,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-overlay {
