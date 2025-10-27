@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #000000;
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #000000;
   }
 }
 
@@ -18,4 +18,292 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+  backdrop-filter: blur(30px);
+  box-shadow: 0px 0px 30px rgba(227,228, 237, 0.37);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+}
+
+.navbar:hover {
+  
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-link {
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.navbar-link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #e2180d;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-link:hover::before {
+  width: 80%;
+}
+
+.navbar-link.active {
+ 
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-link.active::before {
+  width: 80%;
+  background: #e2180d;
+}
+
+.navbar-logo {
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+}
+
+.mobile-menu {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar for navbar if needed */
+.navbar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.navbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.navbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Page Layout Styles */
+.page-container {
+  min-height: 100vh;
+}
+
+.main-content {
+  padding-top: 4rem; /* 64px for navbar height */
+}
+
+/* Hero Section Styles */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title-red {
+  color: #e2180d; /* red-400 */
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 6rem;
+  }
+  .hero-subtitle {
+    font-size: 3rem;
+  }
+}
+
+/* Content Section Styles */
+.content-section {
+  background: linear-gradient(to bottom right, #fef2f2, #f3f4f6);
+  padding: 4rem 0;
+}
+
+.content-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .content-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-container {
+    padding: 0 2rem;
+  }
+}
+
+.content-description {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.content-description p {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* Stats Grid Styles */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-left: 4px solid #dc2626;
+}
+
+.stat-icon {
+  height: 2rem;
+  width: 2rem;
+  color: #dc2626;
+  margin: 0 auto 0.75rem;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.stat-label {
+  color: #4b5563;
+}
+
+/* Action Buttons Styles */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .action-buttons {
+    flex-direction: row;
+  }
+}
+
+.action-button {
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transform: scale(1);
+}
+
+.action-button:hover {
+  transform: scale(1.05);
+}
+
+.action-button-primary {
+  background-color: #dc2626;
+  color: white;
+}
+
+.action-button-primary:hover {
+  background-color: #b91c1c;
+}
+
+.action-button-secondary {
+  background-color: #1f2937;
+  color: white;
+}
+
+.action-button-secondary:hover {
+  background-color: #111827;
+}
+
+.action-button-outline {
+  background-color: white;
+  color: #dc2626;
+  border: 2px solid #dc2626;
+}
+
+.action-button-outline:hover {
+  background-color: #f9fafb;
+}
+
+.action-button-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  margin-right: 0.5rem;
 }

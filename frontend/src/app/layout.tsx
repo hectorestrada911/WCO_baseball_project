@@ -18,12 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`} suppressHydrationWarning={true}>
-        <div className="flex h-screen bg-gray-100">
+        <div className="page-container">
           <Sidebar />
-          <main className="flex-1 overflow-auto lg:ml-0">
-            <div className="p-4 lg:p-6">
-              {children}
-            </div>
+          <main className="main-content">
+            {children}
           </main>
         </div>
       </body>
