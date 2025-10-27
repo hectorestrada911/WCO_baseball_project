@@ -1,7 +1,10 @@
+import Sidebar from "@/components/Sidebar";
+
 export default function HittersPage() {
   return (
     <div className="page-container">
       <div className="content-section">
+        <Sidebar />
         <div className="content-container">
           <h1 className="hero-title">Hitters</h1>
           <p className="content-description">
