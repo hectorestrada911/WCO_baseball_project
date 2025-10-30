@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Home, BarChart2, Settings, Menu } from "lucide-react";
+import { Home, BarChart2, Settings, Menu, User } from "lucide-react";
 
 
 interface SidebarProps {
@@ -12,8 +12,8 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
   const [open, setOpen] = useState(true);
 
   const defaultItems = [
-    { name: "Home", icon: <Home size={18} />, link: "#" },
-    { name: "Analytics", icon: <BarChart2 size={18} />, link: "#" },
+    { name: "Leaderboard", icon: <BarChart2 size={18} />, link: "#" },
+    { name: "By Player", icon: <User size={18} />, link: "#" },
     { name: "Settings", icon: <Settings size={18} />, link: "#" },
   ];
 
@@ -26,7 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
       }`}
     >
       <div className="flex items-center justify-between mb-6">
-        <h1 className={`text-lg font-semibold ${!open && "hidden"}`}>My App</h1>
+        <h1 className={`text-lg font-semibold ${!open && "hidden"}`}>Players</h1>
         <button
           onClick={() => setOpen(!open)}
           className="text-gray-300 hover:text-white"

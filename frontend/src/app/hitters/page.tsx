@@ -1,11 +1,14 @@
 import Sidebar from "@/components/Sidebar";
+import styles from "./hitter_page.module.css";
 
 export default function HittersPage() {
   return (
-    <div className="page-container">
-      <div className="content-section">
-        <Sidebar />
-        <div className="content-container">
+    <div className={`page-container ${styles.pageContainer}`}>
+      <div className={`content-section ${styles.contentSection}`}>
+        <div className={styles.sidebarWrapper}>
+          <Sidebar />
+        </div>
+        <div className={`content-container ${styles.contentContainer}`}>
           <h1 className="hero-title">Hitters</h1>
           <p className="content-description">
             View and analyze hitter performance statistics and metrics.

@@ -1,7 +1,7 @@
 export default function PitchersPage() {
   return (
     <div className="page-container">
-      <div className="content-section">
+      <div className="content-section pt-20 bg-black">
         <div className="content-container">
           <h1 className="hero-title">Pitchers</h1>
           <p className="content-description">

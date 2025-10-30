@@ -1,4 +1,5 @@
 import { Users, Trophy, Target } from "lucide-react";
+import "./globals.css";
 
 export default function HomePage() {
   return (
